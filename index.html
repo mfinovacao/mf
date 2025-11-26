@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub de Inovação MF Rural | Conhecimento que Transforma</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Variáveis de Cores (DNA MF Rural + Inovação) */
+        :root {
+            --mf-verde: #008000;      /* Verde MF Rural */
+            --mf-laranja: #FF6600;    /* Laranja (Energia e Inovação) */
+            --mf-grafite: #333333;    /* Grafite (Tecnologia) */
+            --mf-branco: #FFFFFF;
+            --mf-fundo: #F8F8F8;      /* Fundo claro para o corpo */
+            --mf-fundo-escuro: #1A1A1A; /* Fundo escuro para a sessão de CTA */
+            --mf-fonte-principal: 'Arial', sans-serif;
+        }
+
+        /* Reset e Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--mf-fonte-principal);
+            line-height: 1.6;
+            color: var(--mf-grafite);
+            background-color: var(--mf-fundo);
+        }
+
+        .mf-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Seções */
+        .mf-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .mf-section-title {
+            font-size: 2.5em;
+            color: var(--mf-verde);
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .mf-section-subtitle {
+            font-size: 1.2em;
+            color: var(--mf-grafite);
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Botões/CTAs */
+        .mf-cta-principal {
+            display: inline-block;
+            background-color: var(--mf-laranja);
+            color: var(--mf-branco);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            border: 2px solid var(--mf-laranja);
+        }
+
+        .mf-cta-principal:hover {
+            background-color: #CC5200; /* Laranja mais escuro */
+        }
+
+        .mf-cta-secundario {
+            display: inline-block;
+            color: var(--mf-branco); /* Cor de texto branco na dobra hero escura */
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1em;
+            border-radius: 8px;
+            transition: color 0.3s;
+            margin-left: 20px;
+            border: 2px solid var(--mf-branco);
+        }
+
+        .mf-cta-secundario:hover {
+            color: var(--mf-laranja);
+            border-color: var(--mf-laranja);
+        }
+
+        /* 1. Primeira Dobra (Hero) */
+        .mf-hero {
+            background: var(--mf-fundo-escuro); 
+            color: var(--mf-branco);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mf-hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Substitua 'placeholder-agro-tech.jpg' pela sua imagem real de campo/tecnologia */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('placeholder-agro-tech.jpg') no-repeat center center/cover;
+            z-index: 1;
+        }
+
+        .mf-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .mf-headline {
+            font-size: 3em;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--mf-laranja);
+        }
+
+        .mf-subheadline {
+            font-size: 1.5em;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+
+        /* 2. Cards de Valor (Tendências) */
+        .mf-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: left;
+            margin-top: 40px;
+        }
+
+        .mf-card {
+            background-color: var(--mf-branco);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--mf-verde);
+            transition: transform 0.3s;
+        }
+
+        .mf-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .mf-card i {
+            font-size: 2.5em;
+            color: var(--mf-laranja);
+            margin-bottom: 15px;
+        }
+
+        .mf-card-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--mf-grafite);
+        }
+
+        /* 5. Formulário de Captação (CTA Section) */
+        #mf-captura {
+            background-color: var(--mf-verde); 
+            color: var(--mf-branco);
+            padding: 80px 0;
+        }
+
+        .mf-form-wrap {
+            background-color: var(--mf-branco);
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 30px auto 0;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .mf-form-wrap h3 {
+            color: var(--mf-verde);
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .mf-input-group {
+            margin-bottom: 15px;
+        }
+
+        .mf-input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--mf-grafite);
+            font-weight: bold;
+        }
+
+        .mf-input-group input, .mf-input-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .mf-form-cta {
+            width: 100%;
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        .mf-footer {
+            background-color: var(--mf-fundo-escuro);
+            color: #ccc;
+            padding: 40px 0;
+            font-size: 0.9em;
+        }
+
+        .mf-footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        .mf-footer-links a:hover {
+            color: var(--mf-laranja);
+        }
+
+        .mf-social-icons a {
+            color: var(--mf-branco);
+            font-size: 1.5em;
+            margin: 0 10px;
+        }
+
+        /* Responsividade Básica */
+        @media (max-width: 768px) {
+            .mf-headline {
+                font-size: 2em;
+            }
+            .mf-subheadline {
+                font-size: 1.2em;
+            }
+            .mf-section-title {
+                font-size: 2em;
+            }
+            .mf-cta-secundario {
+                margin-left: 0;
+                margin-top: 10px;
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="mf-hero">
+        <div class="mf-container mf-hero-content">
+            <h1 class="mf-headline">O Futuro do Agronegócio Chegou. Receba o Conhecimento Que Transforma o Campo.</h1>
+            <p class="mf-subheadline">O **Hub de Inovação MF Rural** é o seu ponto de acesso exclusivo aos dados, **tendências de mercado**, e soluções de ponta geradas pelas startups mais promissoras do agro. Inovação na palma da sua mão.</p>
+            <a href="#mf-captura" class="mf-cta-principal">Quero Receber as Atualizações Exclusivas do Agro</a>
+            <a href="#mf-valor" class="mf-cta-secundario">Saiba Mais Sobre o Hub</a>
+        </div>
+    </header>
+
+    <section id="mf-valor" class="mf-section">
+        <div class="mf-container">
+            <h2 class="mf-section-title">O Conhecimento Que Te Coloca na Frente da Porteira</h2>
+            <p class="mf-section-subtitle">O MF Rural coleta, seleciona e entrega o conhecimento mais relevante para otimizar sua produção e seus resultados, transformando dados brutos em **Decisões Estratégicas**.</p>
+            
+            <div class="mf-cards-grid">
+                <div class="mf-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3 class="mf-card-title">1. Tendências de Mercado e Previsão</h3>
+                    <p>Receba análises de demanda, movimentos de preço futuros, benchmarks de produtividade e como fatores externos impactam a sua próxima safra.</p>
+                </div>
+                <div class="mf-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3 class="mf-card-title">2. Casos de Sucesso e Validação</h3>
+                    <p>Apresentamos estudos de caso validados, mostrando resultados concretos de produtores que já adotaram soluções do Hub. Saiba o ROI antes de investir.</p>
+                </div>
+                <div class="mf-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3 class="mf-card-title">3. Otimização e Gestão Eficiente</h3>
+                    <p>Dicas e guias práticos focados em redução de desperdício, melhor uso de insumos, gestão financeira e compliance rural, direto da inteligência das AgTechs.</p>
+                </div>
+                <div class="mf-card">
+                    <i class="fas fa-satellite-dish"></i>
+                    <h3 class="mf-card-title">4. Radar de Soluções e Atualizações</h3>
+                    <p>Fique por dentro de lançamentos de softwares, equipamentos, biotecnologia e serviços que estão entrando no mercado. Conheça a inovação assim que ela se torna disponível.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mf-section" style="background-color: var(--mf-branco);">
+        <div class="mf-container">
+            <h2 class="mf-section-title" style="color: var(--mf-grafite);">Onde o DNA MF Rural Encontra a Inovação das Startups</h2>
+            <p class="mf-section-subtitle" style="color: var(--mf-grafite);">Há mais de **20 anos**, somos o maior elo comercial do agronegócio. Agora, somos também o elo de conhecimento. O **MF Rural** é a ponte entre a tecnologia das startups e a experiência do produtor, garantindo que a informação seja relevante, confiável e aplicável.</p>
+            <blockquote style="color: var(--mf-laranja); font-size: 1.2em; border-left: 5px solid var(--mf-laranja); padding-left: 20px; margin: 30px auto; max-width: 800px;">
+                *Nossa missão: Fomentar a base com inteligência e desenvolvimento rural.*
+            </blockquote>
+        </div>
+    </section>
+
+    <section class="mf-section" style="background-color: var(--mf-fundo);">
+        <div class="mf-container">
+            <h2 class="mf-section-title">A Curadoria de Conteúdo Que Você Precisa</h2>
+            <div class="mf-cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div class="mf-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3 class="mf-card-title">1. Coleta e Parceria</h3>
+                    <p>As startups parceiras compartilham dados e insights conosco.</p>
+                </div>
+                <div class="mf-card">
+                    <i class="fas fa-filter"></i>
+                    <h3 class="mf-card-title">2. Curadoria MF Rural</h3>
+                    <p>Nossa equipe filtra o que é realmente essencial para o produtor.</p>
+                </div>
+                <div class="mf-card">
+                    <i class="fas fa-file-alt"></i>
+                    <h3 class="mf-card-title">3. Geração de Conteúdo</h3>
+                    <p>Transformamos dados brutos em relatórios e newsletters fáceis de consumir.</p>
+                </div>
+                <div class="mf-card">
+                    <i class="fas fa-envelope-open-text"></i>
+                    <h3 class="mf-card-title">4. Envio Segmentado</h3>
+                    <p>Você recebe informações relevantes para a sua área, direto no seu e-mail.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mf-captura">
+        <div class="mf-container">
+            <h2 class="mf-section-title" style="color: var(--mf-branco); margin-bottom: 5px;">Receba o Primeiro Resumo de Mercado do Hub Agora Mesmo!</h2>
+            <p class="mf-section-subtitle" style="color: #eee;">Não perca as atualizações que podem mudar a rota da sua próxima produção.</p>
+
+            <form action="#" method="POST" class="mf-form-wrap">
+                <h3 style="font-size: 1.5em; font-weight: bold;">Junte-se ao Hub de Inovação</h3>
+
+                <div class="mf-input-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+
+                <div class="mf-input-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="mf-input-group">
+                    <label for="area">Área de Atuação</label>
+                    <select id="area" name="area" required>
+                        <option value="">Selecione...</option>
+                        <option value="agricultura">Agricultura (Grãos/Culturas)</option>
+                        <option value="pecuaria">Pecuária (Corte/Leite)</option>
+                        <option value="servicos">Serviços e Consultoria Agro</option>
+                        <option value="revenda">Revenda e Distribuição</option>
+                        <option value="outros">Outros</option>
+                    </select>
+                </div>
+
+                <div class="mf-input-group">
+                    <label for="estado">Estado</label>
+                    <input type="text" id="estado" name="estado" required>
+                </div>
+
+                <button type="submit" class="mf-cta-principal mf-form-cta">Sim, Quero Inovação na Minha Caixa de Entrada</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="mf-footer">
+        <div class="mf-container">
+            <div
