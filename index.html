@@ -1,369 +1,334 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hub de Inovação MF Rural | Conhecimento que Transforma</title>
+    <title>Hub de Inovação MF Rural | O Conhecimento Que Transforma o Campo</title>
+    
+    <link rel="canonical" href="https://www.mfrural.com.br/hubagroinovacao">
+    <meta name="title" content="Hub de Inovação MF Rural - Receba Conteúdo e Tendências do Agro" />
+    <meta name="description" content="O MF Rural Hub de Inovação é o seu ponto de acesso exclusivo aos dados, tendências e soluções de ponta das startups do agro. Conteúdo que transforma." />
+    <meta name="robots" content="index, follow" />
+    
+    <link href="https://cdn.mfrural.com.br/Content/css/dist/home.min.css?v=638996782156479542" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* Variáveis de Cores (DNA MF Rural + Inovação) */
+        /* Variáveis de Cores (Reaproveitando e Adicionando) */
         :root {
-            --mf-verde: #008000;      /* Verde MF Rural */
-            --mf-laranja: #FF6600;    /* Laranja (Energia e Inovação) */
-            --mf-grafite: #333333;    /* Grafite (Tecnologia) */
+            --mf-verde-principal: #55ad33;  /* Cor principal dos botões/links do MF Rural */
+            --mf-laranja: #F4811F;        /* Laranja dos botões de Publicar */
+            --mf-grafite: #212429;        /* Grafite do texto e ícones */
+            --mf-fundo-principal: #101010; /* Fundo Escuro Solicitado */
+            --mf-fundo-cards: #202020;
             --mf-branco: #FFFFFF;
-            --mf-fundo: #F8F8F8;      /* Fundo claro para o corpo */
-            --mf-fundo-escuro: #1A1A1A; /* Fundo escuro para a sessão de CTA */
-            --mf-fonte-principal: 'Arial', sans-serif;
         }
 
-        /* Reset e Base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* Aplica o fundo escuro na seção principal */
+        .lp-main-content {
+            background-color: var(--mf-fundo-principal);
+            color: var(--mf-branco);
+            padding: 40px 0;
+            min-height: 800px;
         }
 
-        body {
-            font-family: var(--mf-fonte-principal);
-            line-height: 1.6;
-            color: var(--mf-grafite);
-            background-color: var(--mf-fundo);
-        }
-
-        .mf-container {
+        /* Containers de Conteúdo */
+        .mf-lp-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
         }
-
-        /* Seções */
-        .mf-section {
-            padding: 60px 0;
+        
+        .mf-lp-section {
+            padding: 40px 0;
             text-align: center;
         }
 
-        .mf-section-title {
+        .mf-lp-section-title {
             font-size: 2.5em;
-            color: var(--mf-verde);
+            color: var(--mf-verde-principal);
             margin-bottom: 15px;
-            font-weight: bold;
+            font-weight: 700; /* Bold */
         }
 
-        .mf-section-subtitle {
+        .mf-lp-section-subtitle {
             font-size: 1.2em;
-            color: var(--mf-grafite);
-            margin-bottom: 40px;
+            color: #ddd; /* Texto levemente mais claro no fundo escuro */
+            margin-bottom: 30px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* Botões/CTAs */
-        .mf-cta-principal {
-            display: inline-block;
-            background-color: var(--mf-laranja);
-            color: var(--mf-branco);
-            padding: 15px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
-            border-radius: 8px;
-            transition: background-color 0.3s;
-            border: 2px solid var(--mf-laranja);
+        /* Primeira Dobra (Hero) */
+        .mf-lp-hero {
+            padding-top: 50px;
+            padding-bottom: 70px;
+            text-align: center;
         }
 
-        .mf-cta-principal:hover {
-            background-color: #CC5200; /* Laranja mais escuro */
-        }
-
-        .mf-cta-secundario {
-            display: inline-block;
-            color: var(--mf-branco); /* Cor de texto branco na dobra hero escura */
-            padding: 15px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1em;
-            border-radius: 8px;
-            transition: color 0.3s;
-            margin-left: 20px;
-            border: 2px solid var(--mf-branco);
-        }
-
-        .mf-cta-secundario:hover {
-            color: var(--mf-laranja);
-            border-color: var(--mf-laranja);
-        }
-
-        /* 1. Primeira Dobra (Hero) */
-        .mf-hero {
-            background: var(--mf-fundo-escuro); 
-            color: var(--mf-branco);
-            padding: 100px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .mf-hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* Substitua 'placeholder-agro-tech.jpg' pela sua imagem real de campo/tecnologia */
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('placeholder-agro-tech.jpg') no-repeat center center/cover;
-            z-index: 1;
-        }
-
-        .mf-hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .mf-headline {
-            font-size: 3em;
+        .mf-lp-headline {
+            font-size: 3.5em;
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 20px;
             color: var(--mf-laranja);
         }
 
-        .mf-subheadline {
-            font-size: 1.5em;
+        .mf-lp-subheadline {
+            font-size: 1.6em;
             max-width: 900px;
             margin: 0 auto 40px;
             font-weight: 300;
+            color: var(--mf-branco);
         }
 
-        /* 2. Cards de Valor (Tendências) */
-        .mf-cards-grid {
+        /* Cards de Valor (Tendências) */
+        .mf-lp-cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            text-align: left;
+            gap: 20px;
+            text-align: center;
             margin-top: 40px;
         }
 
-        .mf-card {
-            background-color: var(--mf-branco);
+        .mf-lp-card {
+            background-color: var(--mf-fundo-cards); /* Cards mais escuros */
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            border-top: 5px solid var(--mf-verde);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            border-top: 3px solid var(--mf-verde-principal);
             transition: transform 0.3s;
         }
 
-        .mf-card:hover {
-            transform: translateY(-5px);
+        .mf-lp-card:hover {
+            transform: translateY(-3px);
+            border-top-color: var(--mf-laranja);
         }
 
-        .mf-card i {
-            font-size: 2.5em;
+        .mf-lp-card i {
+            font-size: 3em;
             color: var(--mf-laranja);
             margin-bottom: 15px;
         }
 
-        .mf-card-title {
+        .mf-lp-card-title {
             font-size: 1.3em;
             font-weight: bold;
             margin-bottom: 10px;
-            color: var(--mf-grafite);
-        }
-
-        /* 5. Formulário de Captação (CTA Section) */
-        #mf-captura {
-            background-color: var(--mf-verde); 
             color: var(--mf-branco);
-            padding: 80px 0;
-        }
-
-        .mf-form-wrap {
-            background-color: var(--mf-branco);
-            padding: 40px;
-            border-radius: 10px;
-            max-width: 600px;
-            margin: 30px auto 0;
-            text-align: left;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .mf-form-wrap h3 {
-            color: var(--mf-verde);
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .mf-input-group {
-            margin-bottom: 15px;
-        }
-
-        .mf-input-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--mf-grafite);
-            font-weight: bold;
-        }
-
-        .mf-input-group input, .mf-input-group select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1em;
-        }
-
-        .mf-form-cta {
-            width: 100%;
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        /* Footer */
-        .mf-footer {
-            background-color: var(--mf-fundo-escuro);
-            color: #ccc;
-            padding: 40px 0;
-            font-size: 0.9em;
-        }
-
-        .mf-footer-links a {
-            color: #aaa;
-            text-decoration: none;
-            margin: 0 10px;
         }
         
-        .mf-footer-links a:hover {
+        .mf-lp-card p {
+            color: #ccc;
+        }
+        
+        /* Formulário de Captação */
+        .mf-lp-form-section {
+            background-color: var(--mf-verde-principal); /* Cor de destaque para o CTA final */
+            color: var(--mf-branco);
+            padding: 60px 0;
+        }
+        
+        .mf-lp-form-wrap {
+            background-color: var(--mf-branco);
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 500px;
+            margin: 20px auto 0;
+            text-align: left;
+        }
+
+        .mf-lp-form-wrap h3 {
+            color: var(--mf-verde-principal);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .mf-lp-input-group label {
+            color: var(--mf-grafite);
+        }
+
+        .mf-lp-input-group input, .mf-lp-input-group select {
+            border: 1px solid #ccc;
+        }
+        
+        /* Botões */
+        .mf-lp-cta-principal {
+            background-color: var(--mf-laranja);
+            color: var(--mf-branco);
+            padding: 15px 30px;
+            font-weight: bold;
+            border-radius: 8px;
+            display: inline-block;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .mf-lp-cta-principal:hover {
+            background-color: #CC5200;
+        }
+        
+        .mf-lp-cta-secundario {
+            color: var(--mf-branco);
+            padding: 15px 30px;
+            font-weight: 500;
+            display: inline-block;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+        .mf-lp-cta-secundario:hover {
             color: var(--mf-laranja);
         }
-
-        .mf-social-icons a {
-            color: var(--mf-branco);
-            font-size: 1.5em;
-            margin: 0 10px;
+        
+        /* Ajustes no Footer (se necessário) */
+        .footer__content-address {
+            background-color: var(--mf-fundo-escuro); /* Mantém o fundo escuro padrão do footer */
         }
-
-        /* Responsividade Básica */
-        @media (max-width: 768px) {
-            .mf-headline {
-                font-size: 2em;
-            }
-            .mf-subheadline {
-                font-size: 1.2em;
-            }
-            .mf-section-title {
-                font-size: 2em;
-            }
-            .mf-cta-secundario {
-                margin-left: 0;
-                margin-top: 10px;
-                display: block;
-            }
+        
+        /* O código do HEADER e FOOTER do MF Rural é COMPLEXO. Para este exemplo, vou manter o HEADER e FOOTER simplificados e estáticos, mas fiéis ao HTML que você enviou */
+        
+        /* Classes do HTML principal (para replicar a busca e menu) */
+        .header { background: #FFF; }
+        .header__logo img { height: 42px; width: 188px; }
+        /* Adicionei um estilo para o botão principal de Publicar Anúncio no Header para ser fiel */
+        .col.publicar a {
+            background-color: var(--mf-verde-principal) !important;
+            border-color: var(--mf-verde-principal) !important;
+        }
+        .col.publicar a:hover {
+            background-color: #4CAF50 !important;
+            border-color: #4CAF50 !important;
         }
     </style>
 </head>
 <body>
-
-    <header class="mf-hero">
-        <div class="mf-container mf-hero-content">
-            <h1 class="mf-headline">O Futuro do Agronegócio Chegou. Receba o Conhecimento Que Transforma o Campo.</h1>
-            <p class="mf-subheadline">O **Hub de Inovação MF Rural** é o seu ponto de acesso exclusivo aos dados, **tendências de mercado**, e soluções de ponta geradas pelas startups mais promissoras do agro. Inovação na palma da sua mão.</p>
-            <a href="#mf-captura" class="mf-cta-principal">Quero Receber as Atualizações Exclusivas do Agro</a>
-            <a href="#mf-valor" class="mf-cta-secundario">Saiba Mais Sobre o Hub</a>
-        </div>
-    </header>
-
-    <section id="mf-valor" class="mf-section">
-        <div class="mf-container">
-            <h2 class="mf-section-title">O Conhecimento Que Te Coloca na Frente da Porteira</h2>
-            <p class="mf-section-subtitle">O MF Rural coleta, seleciona e entrega o conhecimento mais relevante para otimizar sua produção e seus resultados, transformando dados brutos em **Decisões Estratégicas**.</p>
+    
+    <div class="top" style="background: #FFF;">    
+        <header class="header">        
+            <div class="header__content container-fluid">            
+                <div class="container py-3 px-lg-0 px-3 lg">                
+                    <div class="d-flex justify-content-between align-items-center">                    
+                        <span class="menu__content d-lg-none d-block">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#495057" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                        </span>                    
+                        <div class="header__logo">                        
+                            <a href="/">                            
+                                <img src="/Content/img/logo.png" class="logo__img" alt="Logo MF Rural" title="MF Rural - Compre e Venda Produtos Agro em todo Brasil" width="188" height="42" loading="lazy" />                        
+                            </a>                    
+                        </div>                    
+                        <input type="checkbox" id="open__search-check" class="open__search-check">                    
+                        <label for="open__search-check" class="open_search d-lg-none d-block mb-0 mr-0 mr-lg-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#495057" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </label>                    
+                        <div id="regiaoPesquisa" class="regiaoPesquisa form__content">                        
+                            <div id="buscaId" class="form__search form">                            
+                                <input type="text" required placeholder="O que você procura?" ID="txtbusca" id="form__search-focus btBusca" title="Digite aqui a palavra rural que deseja buscar" class="searchPrincipal form-control form-control-lg" autocomplete="off" />                            
+                                <button type="button" role="button" aria-label="Pesquisa" id="btBusca" class="btBusca btn btn-light border-0 text-muted btn-form" value="">                                
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>                            
+                                </button>                        
+                            </div>                    
+                        </div>                    
+                        <div class="header__content d-flex justify-content-around icons-header align-items-center">                            
+                            <div class="dropdown">                                
+                                <button class="btn d-xl-block dropdown-toggle header__content-link my__account" type="button" id="accountOp" data-toggle="dropdown" aria-expanded="false" style=" color: #ACB5BD;">                                    
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>                                    
+                                    Minha conta                                
+                                </button>                                
+                                </div>                    
+                        </div>
+                        
+                        <div class="col publicar">                            
+                            <a title="Publique seu Anúncio" class="btn btn-success btn-block text-nowrap" href="/anunciar">Publicar Anúncio</a>                    
+                        </div>                
+                    </div>            
+                </div>        
+            </div>    
+        </header>    
+        <nav class="header__menu container-fluid nav-header d-none d-lg-block">        
+            <div class="header__menu-container container p-0">
+                <ul class="d-flex justify-content-between menu-header">
+                    <li class="categorias"><a href="/produtos" class="categorias__link" title="Classificados Rurais e Agropecuários" style="font-weight: 500;">Todas as Categorias</a></li>
+                    <li><a href="https://www.mfrural.com.br/quem-somos">Quem Somos</a></li>
+                    <li><a title="MF Magazine - A Revista Digital do Agronegócio" href="https://blog.mfrural.com.br/">MF Magazine</a></li>
+                    <li><a title="Depoimentos de Anunciantes" href="https://www.mfrural.com.br/depoimentos">Depoimentos</a></li>
+                    <li><a title="Lojas oficiais de empresas agropecuárias" href="https://www.mfrural.com.br/lojas-oficiais">Lojas Oficiais</a></li>
+                    <li class="publicar_anuncio"><a title="Anuncie no MF Rural" href="https://www.mfrural.com.br/anunciar">Publicar Anúncio</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <main class="lp-main-content">
+        <div class="mf-lp-container">
             
-            <div class="mf-cards-grid">
-                <div class="mf-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3 class="mf-card-title">1. Tendências de Mercado e Previsão</h3>
-                    <p>Receba análises de demanda, movimentos de preço futuros, benchmarks de produtividade e como fatores externos impactam a sua próxima safra.</p>
+            <section class="mf-lp-hero">
+                <h1 class="mf-lp-headline">O Futuro do Agronegócio Chegou. Receba o Conhecimento Que Transforma o Campo.</h1>
+                <p class="mf-lp-subheadline">O **Hub de Inovação MF Rural** é o seu ponto de acesso exclusivo aos dados, **tendências de mercado**, e soluções de ponta geradas pelas startups mais promissoras do agro. Inovação na palma da sua mão.</p>
+                <a href="#mf-captura-form" class="mf-lp-cta-principal">Quero Receber as Atualizações Exclusivas do Agro</a>
+                <a href="#mf-valor" class="mf-lp-cta-secundario">Saiba Mais Sobre o Hub</a>
+            </section>
+            
+            <section id="mf-valor" class="mf-lp-section">
+                <h2 class="mf-lp-section-title">O Conhecimento Que Te Coloca na Frente da Porteira</h2>
+                <p class="mf-lp-section-subtitle">O MF Rural coleta, seleciona e entrega o conhecimento mais relevante para otimizar sua produção e seus resultados, transformando dados brutos em **Decisões Estratégicas**.</p>
+                
+                <div class="mf-lp-cards-grid">
+                    <div class="mf-lp-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3 class="mf-lp-card-title">1. Tendências de Mercado e Previsão</h3>
+                        <p>Receba análises de demanda, movimentos de preço futuros, benchmarks de produtividade e como fatores externos impactam a sua próxima safra.</p>
+                    </div>
+                    <div class="mf-lp-card">
+                        <i class="fas fa-seedling"></i>
+                        <h3 class="mf-lp-card-title">2. Casos de Sucesso e Validação</h3>
+                        <p>Apresentamos estudos de caso validados, mostrando resultados concretos de produtores que já adotaram soluções do Hub. Saiba o ROI antes de investir.</p>
+                    </div>
+                    <div class="mf-lp-card">
+                        <i class="fas fa-cogs"></i>
+                        <h3 class="mf-lp-card-title">3. Otimização e Gestão Eficiente</h3>
+                        <p>Dicas e guias práticos focados em redução de desperdício, melhor uso de insumos, gestão financeira e compliance rural, direto da inteligência das AgTechs.</p>
+                    </div>
+                    <div class="mf-lp-card">
+                        <i class="fas fa-satellite-dish"></i>
+                        <h3 class="mf-lp-card-title">4. Radar de Soluções e Atualizações</h3>
+                        <p>Fique por dentro de lançamentos de softwares, equipamentos, biotecnologia e serviços que estão entrando no mercado. Conheça a inovação assim que ela se torna disponível.</p>
+                    </div>
                 </div>
-                <div class="mf-card">
-                    <i class="fas fa-seedling"></i>
-                    <h3 class="mf-card-title">2. Casos de Sucesso e Validação</h3>
-                    <p>Apresentamos estudos de caso validados, mostrando resultados concretos de produtores que já adotaram soluções do Hub. Saiba o ROI antes de investir.</p>
-                </div>
-                <div class="mf-card">
-                    <i class="fas fa-cogs"></i>
-                    <h3 class="mf-card-title">3. Otimização e Gestão Eficiente</h3>
-                    <p>Dicas e guias práticos focados em redução de desperdício, melhor uso de insumos, gestão financeira e compliance rural, direto da inteligência das AgTechs.</p>
-                </div>
-                <div class="mf-card">
-                    <i class="fas fa-satellite-dish"></i>
-                    <h3 class="mf-card-title">4. Radar de Soluções e Atualizações</h3>
-                    <p>Fique por dentro de lançamentos de softwares, equipamentos, biotecnologia e serviços que estão entrando no mercado. Conheça a inovação assim que ela se torna disponível.</p>
-                </div>
-            </div>
+            </section>
+            
+            <section class="mf-lp-section" style="background-color: var(--mf-fundo-principal);">
+                <h2 class="mf-lp-section-title" style="color: var(--mf-branco);">Onde o DNA MF Rural Encontra a Inovação das Startups</h2>
+                <p class="mf-lp-section-subtitle" style="color: #ccc;">Há mais de **20 anos**, somos o maior elo comercial do agronegócio. Agora, somos também o elo de conhecimento. O **MF Rural** é a ponte entre a tecnologia das startups e a experiência do produtor, garantindo que a informação seja relevante, confiável e aplicável.</p>
+                <blockquote style="color: var(--mf-laranja); font-size: 1.2em; border-left: 5px solid var(--mf-laranja); padding-left: 20px; margin: 30px auto; max-width: 800px; text-align: left;">
+                    *Nossa missão: Fomentar a base com inteligência e desenvolvimento rural.*
+                </blockquote>
+            </section>
+
         </div>
-    </section>
+    </main>
+    
+    <section id="mf-captura-form" class="mf-lp-form-section">
+        <div class="mf-lp-container">
+            <h2 class="mf-lp-section-title" style="color: var(--mf-branco); margin-bottom: 5px;">Receba o Primeiro Resumo de Mercado do Hub Agora Mesmo!</h2>
+            <p class="mf-lp-section-subtitle" style="color: #eee;">Não perca as atualizações que podem mudar a rota da sua próxima produção.</p>
 
-    <section class="mf-section" style="background-color: var(--mf-branco);">
-        <div class="mf-container">
-            <h2 class="mf-section-title" style="color: var(--mf-grafite);">Onde o DNA MF Rural Encontra a Inovação das Startups</h2>
-            <p class="mf-section-subtitle" style="color: var(--mf-grafite);">Há mais de **20 anos**, somos o maior elo comercial do agronegócio. Agora, somos também o elo de conhecimento. O **MF Rural** é a ponte entre a tecnologia das startups e a experiência do produtor, garantindo que a informação seja relevante, confiável e aplicável.</p>
-            <blockquote style="color: var(--mf-laranja); font-size: 1.2em; border-left: 5px solid var(--mf-laranja); padding-left: 20px; margin: 30px auto; max-width: 800px;">
-                *Nossa missão: Fomentar a base com inteligência e desenvolvimento rural.*
-            </blockquote>
-        </div>
-    </section>
-
-    <section class="mf-section" style="background-color: var(--mf-fundo);">
-        <div class="mf-container">
-            <h2 class="mf-section-title">A Curadoria de Conteúdo Que Você Precisa</h2>
-            <div class="mf-cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                <div class="mf-card">
-                    <i class="fas fa-handshake"></i>
-                    <h3 class="mf-card-title">1. Coleta e Parceria</h3>
-                    <p>As startups parceiras compartilham dados e insights conosco.</p>
-                </div>
-                <div class="mf-card">
-                    <i class="fas fa-filter"></i>
-                    <h3 class="mf-card-title">2. Curadoria MF Rural</h3>
-                    <p>Nossa equipe filtra o que é realmente essencial para o produtor.</p>
-                </div>
-                <div class="mf-card">
-                    <i class="fas fa-file-alt"></i>
-                    <h3 class="mf-card-title">3. Geração de Conteúdo</h3>
-                    <p>Transformamos dados brutos em relatórios e newsletters fáceis de consumir.</p>
-                </div>
-                <div class="mf-card">
-                    <i class="fas fa-envelope-open-text"></i>
-                    <h3 class="mf-card-title">4. Envio Segmentado</h3>
-                    <p>Você recebe informações relevantes para a sua área, direto no seu e-mail.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="mf-captura">
-        <div class="mf-container">
-            <h2 class="mf-section-title" style="color: var(--mf-branco); margin-bottom: 5px;">Receba o Primeiro Resumo de Mercado do Hub Agora Mesmo!</h2>
-            <p class="mf-section-subtitle" style="color: #eee;">Não perca as atualizações que podem mudar a rota da sua próxima produção.</p>
-
-            <form action="#" method="POST" class="mf-form-wrap">
+            <form action="#" method="POST" class="mf-lp-form-wrap">
                 <h3 style="font-size: 1.5em; font-weight: bold;">Junte-se ao Hub de Inovação</h3>
 
-                <div class="mf-input-group">
+                <div class="mf-lp-input-group">
                     <label for="nome">Nome Completo</label>
-                    <input type="text" id="nome" name="nome" required>
+                    <input type="text" id="nome" name="nome" class="form-control" required>
                 </div>
 
-                <div class="mf-input-group">
+                <div class="mf-lp-input-group">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" class="form-control" required>
                 </div>
 
-                <div class="mf-input-group">
+                <div class="mf-lp-input-group">
                     <label for="area">Área de Atuação</label>
-                    <select id="area" name="area" required>
+                    <select id="area" name="area" class="form-control" required>
                         <option value="">Selecione...</option>
                         <option value="agricultura">Agricultura (Grãos/Culturas)</option>
                         <option value="pecuaria">Pecuária (Corte/Leite)</option>
@@ -373,16 +338,103 @@
                     </select>
                 </div>
 
-                <div class="mf-input-group">
+                <div class="mf-lp-input-group">
                     <label for="estado">Estado</label>
-                    <input type="text" id="estado" name="estado" required>
+                    <input type="text" id="estado" name="estado" class="form-control" required>
                 </div>
 
-                <button type="submit" class="mf-cta-principal mf-form-cta">Sim, Quero Inovação na Minha Caixa de Entrada</button>
+                <button type="submit" class="mf-lp-cta-principal" style="width: 100%; margin-top: 20px; border: none;">Sim, Quero Inovação na Minha Caixa de Entrada</button>
             </form>
         </div>
     </section>
 
-    <footer class="mf-footer">
-        <div class="mf-container">
-            <div
+    
+    <footer class="footer">
+        <div class="footer__content container-fluid py-md-5 py-3 px-0">        
+            <div class="container rodape-info footerOp px-0" style="background: inherit">
+                <div class="footer__content-list col-lg-2 col-12">
+                    <div class="row flex-column m-0">
+                        <input id="menu-1" class="menu-1" name="acordion" type="checkbox">
+                        <label for="menu-1">
+                            <span class="rodapeTitulo menu__title font-weight-bold">
+                                Utilidade MF Rural
+                                <svg class="svg-inline--fa fa-chevron-down" width="14" height="14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg>
+                            </span>
+                        </label>
+                        <ul class="rodapeItens menu__list1 text-dark">
+                            <li><a href="https://www.mfrural.com.br/apresentacao" title="Produto agropecuario Site mercado agropecuário Loja de produto agropecuario venda produto">Apresentação</a></li>
+                            <li><a href="https://www.mfrural.com.br/produtos" title="Produtos rurais Compra venda de Trator Fazendas Classificados rurais negócios rurais">Produtos Rurais</a></li>
+                            <li><a href="/produtos/1-9/servicos" title="Serviços rurais Fretes Consultoria Seguro Rural Serviços agropecuários MF Rural">Serviços Rurais</a></li>
+                            <li><a href="https://blog.mfrural.com.br/categoria/noticias-agricolas/" title="Notícias Agrícolas do MF Rural">Notícias Agrícolas</a></li>
+                            <li><a href="https://www.mfrural.com.br/lojas-oficiais" title="Lojas Oficiais do MF Rural">Lojas Oficiais</a></li>
+                            <li><a href="https://www.mfrural.com.br/avaliacao-preco-de-trator" title="Avaliação de Preço de Tratores">Avaliação de Tratores</a></li>
+                            <li><a href="https://blog.mfrural.com.br/" title="MF Magazine - A Revista Digital do Agronegócio">MF Magazine</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer__content-list col-lg-3 col-12">
+                    <div class="row flex-column m-0">
+                        <input id="menu-2" class="menu-2" name="acordion" type="checkbox">
+                        <label for="menu-2">
+                            <span class="rodapeTitulo menu__title font-weight-bold">
+                                Informações
+                                <svg class="svg-inline--fa fa-chevron-down" width="14" height="14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg>
+                            </span>
+                        </label>
+                        <ul class="rodapeItens menu__list2 text-dark">
+                            <li><a href="/plano-loja-oficial" title="Preço Pacote de Anúncios">Preço Pacote de Anúncios</a></li>
+                            <li><a target="_blank" href="https://www.mfrural.com.br/politica-de-privacidade">Politica de Privacidade</a></li>
+                            <li><a target="_blank" href="https://www.mfrural.com.br/politica-de-cookie">Politica de Cookies</a></li>
+                            <li><a target="_blank" href="https://www.mfrural.com.br/politica">Politica de Preços / Tarifas</a></li>
+                            <li><a href="/contato" title="Entre em contato para fazer melhores negócios">Contato</a></li>
+                            <li><a href="/termos-de-uso" title="Termos de Uso">Termos de Uso</a></li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+        </div>
+        <div class="footer__content-address container_fluid pt-4">
+            <div class="container d-flex contato align-items-center">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="icons-socials d-flex justify-content-center align-items-center flex-column">
+                            <p class="m-0 d-none d-sm-flex text-center"><strong>Formas de pagamento</strong></p>
+                            </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="icons-socials d-flex justify-content-center align-items-center flex-column">
+                            <p class="m-0 d-none d-sm-flex"><strong>Nossas redes</strong></p>
+                            </div>
+                    </div>
+                    <div class="col-md-3 d-flex justify-content-center justify-content-lg-end">
+                        <figure>
+                            <img src="/Content/img/logo.png" alt="Logo" class="img-fluid" loading="lazy" title="MF Rural" width="188" height="42">
+                        </figure>
+                    </div>
+                    <div class="col-md-12 d-flex justify-content-center justify-content-lg-start pt-3">
+                        <address style="font-size: 11px;">
+                            MF Rural - Mercado Físico Rural - Rua Sete de Setembro, 1440 - Bairro Alto Cafezal, CEP: 17502-020, Marília/SP - Brasil<br />
+                            CNPJ: 07.095.159/0001-86 <br />
+                            E-mail: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="741912060106151834191206010615185a171b195a1606">[email&#160;protected]</a>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script defer src="https://cdn.mfrural.com.br/Content/js/dist/global.min.js?v=638996781938406374"></script>
+    <script defer src="https://cdn.mfrural.com.br/Content/js/dist/home.min.js?v=638996781916334714"></script>
+    
+    <script>
+        // Script de ancoragem suave (para os links #mf-captura-form)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
