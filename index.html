@@ -3,365 +3,410 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MF Rural | Canal de Propulsão Agro</title>
+    <title>MF Rural | Canal de Propulsão Agro - Conhecimento e Inovação</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* Variáveis de Cores (Paleta MF Rural) */
+        /* Variáveis de Cores (Paleta AgroTech) */
         :root {
-            --mf-laranja: #ff7f00;
-            --mf-laranja-claro: #ffa03b;
-            --mf-azul: #004b92;
-            --mf-fundo-principal: #1e1e1e; /* Fundo escuro */
-            --mf-fundo-secundario: #2a2a2a;
-            --mf-texto-claro: #f4f4f4;
-            --mf-texto-escuro: #333;
+            --mf-verde-principal: #008000;    /* Verde MF Rural */
+            --mf-laranja: #FF6600;          /* Laranja (Energia e Inovação) */
+            --mf-grafite: #333333;          /* Grafite (Texto Principal) */
+            --mf-fundo-principal: #101010;  /* Fundo Escuro Solicitado */
+            --mf-fundo-cards: #1a1a1a;
+            --mf-branco: #FFFFFF;
         }
 
-        /* RESET e Tipografia (FONTE REPLICADA) */
+        /* Reset e Base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Open Sans', Arial, sans-serif; /* FONTE MF RURAL */
-        }
-        
-        body {
-            background-color: var(--mf-fundo-principal);
-            color: var(--mf-texto-claro);
-            line-height: 1.6;
+            font-family: 'Open Sans', Arial, sans-serif; /* FONTE REPLICADA */
         }
 
-        /* Layout e Containers */
-        .mf-container {
-            width: 90%;
+        body {
+            line-height: 1.6;
+            color: var(--mf-texto-claro);
+            background-color: var(--mf-fundo-principal);
+        }
+
+        .mf-lp-container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 15px;
         }
 
-        /* HEADER (TOPO) */
-        .mf-header {
-            background-color: var(--mf-azul);
-            padding: 10px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        /* HEADER SIMPLIFICADO (Topo) */
+        .mf-lp-header {
+            background-color: #FFF;
+            padding: 15px 0;
+            border-bottom: 3px solid var(--mf-laranja);
         }
 
-        .mf-nav {
+        .mf-lp-header .mf-lp-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
-        .mf-logo-text {
-            color: var(--mf-laranja);
-            font-size: 1.8em;
-            font-weight: 800;
-            text-decoration: none;
+        
+        .mf-logo-img {
+            height: 45px; /* Altura padrão para o logo */
+            width: auto;
         }
-
-        .mf-logo-text span {
-            color: var(--mf-texto-claro);
-            font-weight: 300;
-        }
-
-        .mf-menu a {
-            color: var(--mf-texto-claro);
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .mf-menu a:hover {
-            color: var(--mf-laranja);
-        }
-
-        /* BARRA DE BUSCA */
-        .mf-search-bar {
-            background-color: var(--mf-fundo-secundario);
-            padding: 15px 0;
-            border-bottom: 2px solid var(--mf-laranja);
-        }
-
-        .mf-search-content {
-            display: flex;
-            gap: 10px;
-        }
-
-        .mf-search-content input[type="text"] {
-            flex-grow: 1;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            font-size: 1em;
-            background-color: #3a3a3a;
-            color: var(--mf-texto-claro);
-        }
-
-        .mf-search-content button {
-            background-color: var(--mf-laranja);
-            color: white;
+        
+        .mf-header-cta {
+            background-color: var(--mf-verde-principal);
+            color: var(--mf-branco);
             padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1em;
-            font-weight: 700;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
             transition: background-color 0.3s;
         }
-
-        .mf-search-content button:hover {
-            background-color: var(--mf-laranja-claro);
+        .mf-header-cta:hover {
+            background-color: #006400;
         }
 
-        /* SEÇÃO PRINCIPAL (HERO) - Conteúdo e Formulário */
+
+        /* 1. Primeira Dobra (Hero) */
         .mf-lp-hero {
-            padding: 80px 0;
+            padding: 100px 0;
             text-align: center;
-            background-color: var(--mf-fundo-principal);
+            /* Se for usar imagem de fundo, insira o CSS aqui */
         }
 
         .mf-lp-headline {
-            font-size: 2.5em;
-            color: var(--mf-laranja);
+            font-size: 3em;
+            font-weight: 800;
+            line-height: 1.2;
             margin-bottom: 20px;
-            font-weight: 700;
+            color: var(--mf-laranja);
         }
 
         .mf-lp-subheadline {
-            font-size: 1.2em;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            color: #ccc;
-        }
-
-        .mf-form-wrapper {
-            background-color: var(--mf-fundo-secundario);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .mf-form-wrapper h2 {
-            color: var(--mf-laranja);
-            margin-bottom: 20px;
             font-size: 1.5em;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+            color: #ddd;
         }
 
-        .mf-form-wrapper input,
-        .mf-form-wrapper select {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #555;
-            border-radius: 4px;
-            background-color: #3a3a3a;
-            color: var(--mf-texto-claro);
-            font-size: 1em;
-        }
-
-        .mf-form-wrapper button {
-            width: 100%;
+        /* Botões/CTAs */
+        .mf-lp-cta-principal {
+            display: inline-block;
             background-color: var(--mf-laranja);
-            color: white;
-            padding: 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+            color: var(--mf-branco);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
             font-size: 1.1em;
-            font-weight: 700;
+            border-radius: 8px;
             transition: background-color 0.3s;
         }
 
-        .mf-form-wrapper button:hover {
-            background-color: var(--mf-laranja-claro);
+        .mf-lp-cta-principal:hover {
+            background-color: #CC5200;
         }
 
-        /* SEÇÕES DE CONTEÚDO */
+        .mf-lp-cta-secundario {
+            display: inline-block;
+            color: var(--mf-branco);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1em;
+            border-radius: 8px;
+            transition: color 0.3s;
+            margin-left: 20px;
+            border: 2px solid var(--mf-branco);
+        }
+
+        .mf-lp-cta-secundario:hover {
+            color: var(--mf-laranja);
+            border-color: var(--mf-laranja);
+        }
+
+        /* Seções de Conteúdo */
         .mf-lp-section {
             padding: 60px 0;
             text-align: center;
         }
 
         .mf-lp-section-title {
-            font-size: 2em;
+            font-size: 2.2em;
             color: var(--mf-laranja);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-weight: 700;
         }
 
         .mf-lp-section-subtitle {
             font-size: 1.1em;
-            max-width: 900px;
-            margin: 0 auto 40px;
             color: #ccc;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
-
-        .mf-cards-grid {
+        
+        /* Cards de Valor (Tendências) */
+        .mf-lp-cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
-            margin-top: 30px;
-        }
-
-        .mf-card {
-            background-color: var(--mf-fundo-secundario);
-            padding: 25px;
-            border-radius: 8px;
-            text-align: left;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-            border-top: 3px solid var(--mf-laranja);
-        }
-
-        .mf-card h3 {
-            color: var(--mf-laranja);
-            margin-bottom: 10px;
-            font-size: 1.4em;
-            font-weight: 600;
-        }
-
-        .mf-card p {
-            color: #ccc;
-        }
-
-        /* FOOTER */
-        .mf-footer {
-            background-color: var(--mf-azul);
-            padding: 30px 0;
             text-align: center;
-            color: var(--mf-texto-claro);
+            margin-top: 40px;
         }
 
-        .mf-footer-links a {
-            color: var(--mf-texto-claro);
+        .mf-lp-card {
+            background-color: var(--mf-fundo-cards);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-top: 5px solid var(--mf-verde-principal);
+            transition: transform 0.3s;
+        }
+
+        .mf-lp-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .mf-lp-card i {
+            font-size: 2.5em;
+            color: var(--mf-laranja);
+            margin-bottom: 15px;
+        }
+
+        .mf-lp-card-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--mf-branco);
+        }
+        
+        .mf-lp-card p {
+            color: #ccc;
+            text-align: left;
+        }
+        
+        /* Citação/DNA */
+        .mf-blockquote {
+            color: var(--mf-laranja); 
+            font-size: 1.2em; 
+            border-left: 5px solid var(--mf-laranja); 
+            padding-left: 20px; 
+            margin: 30px auto; 
+            max-width: 800px; 
+            text-align: left;
+        }
+
+        /* Formulário de Captação */
+        #mf-captura {
+            background-color: var(--mf-verde-principal);
+            color: var(--mf-branco);
+            padding: 80px 0;
+        }
+
+        .mf-form-wrap {
+            background-color: var(--mf-branco);
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 30px auto 0;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .mf-form-wrap h3 {
+            color: var(--mf-verde-principal);
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .mf-input-group {
+            margin-bottom: 15px;
+        }
+
+        .mf-input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--mf-grafite);
+            font-weight: bold;
+        }
+
+        .mf-input-group input, .mf-input-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            color: var(--mf-grafite);
+        }
+        
+        .mf-form-cta {
+            width: 100%;
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        /* FOOTER */
+        .mf-lp-footer {
+            background-color: var(--mf-fundo-cards);
+            color: #aaa;
+            padding: 40px 0;
+            font-size: 0.9em;
+            border-top: 1px solid #333;
+        }
+        .mf-lp-footer a {
+            color: #aaa;
             text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s;
+            margin: 0 10px;
         }
-
-        .mf-footer-links a:hover {
+        .mf-lp-footer a:hover {
             color: var(--mf-laranja);
         }
 
-        .mf-footer-social {
-            margin-top: 15px;
-            font-size: 1.2em;
-        }
-
-        .mf-footer-social a {
-            color: var(--mf-texto-claro);
-            margin: 0 8px;
-            text-decoration: none;
-        }
-
-        .mf-footer-copyright {
-            margin-top: 20px;
-            font-size: 0.9em;
-            color: #aaa;
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .mf-lp-headline {
+                font-size: 2.5em;
+            }
+            .mf-lp-subheadline {
+                font-size: 1.2em;
+            }
+            .mf-lp-cta-secundario {
+                margin-left: 0;
+                margin-top: 15px;
+                display: block;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header class="mf-header">
-        <div class="mf-container">
-            <nav class="mf-nav">
-                <a href="#" class="mf-logo-text">MF<span>Rural</span></a>
-                <div class="mf-menu">
-                    <a href="#mf-valor">Valor</a>
-                    <a href="#mf-dna">DNA</a>
-                    <a href="#">Contato</a>
-                    <a href="#" style="color: var(--mf-laranja);">Acessar</a>
-                </div>
-            </nav>
+    <header class="mf-lp-header">
+        <div class="mf-lp-container">
+            <a href="#" class="mf-logo-link">
+                <img src="logo-mf-rural.png" alt="Logo MF Rural" class="mf-logo-img">
+            </a>
+            <a href="/anunciar" class="mf-header-cta">Publicar Anúncio</a>
         </div>
     </header>
 
-    <section class="mf-search-bar">
-        <div class="mf-container mf-search-content">
-            <input type="text" placeholder="Buscar por conteúdo ou soluções...">
-            <button>Pesquisar</button>
-        </div>
-    </section>
-
     <section class="mf-lp-hero">
-        <div class="mf-container">
+        <div class="mf-lp-container">
             <h1 class="mf-lp-headline">Nossa Essência Pioneira Impulsiona a Inovação. O Conhecimento Que Transforma o Campo Está Aqui.</h1>
             <p class="mf-lp-subheadline">
                 Somos pioneiros e mantemos nosso DNA: fornecer serviços e produtos de qualidade. Este é o nosso <strong>Canal de Propulsão Agro</strong>, o berço onde regamos a semente das empresas embrionárias do agro para que você colha os frutos da evolução do setor.
             </p>
-
-            <div class="mf-form-wrapper">
-                <h2>Receba Conteúdo Exclusivo do Canal de Propulsão Agro</h2>
-                <form>
-                    <input type="text" placeholder="Nome Completo" required>
-                    <input type="email" placeholder="E-mail Profissional" required>
-                    <input type="tel" placeholder="Telefone (com DDD)" required>
-                    <select required>
-                        <option value="">Você é...</option>
-                        <option value="produtor">Produtor Rural</option>
-                        <option value="startup">Startup do Agro</option>
-                        <option value="investidor">Investidor/Parceiro</option>
-                        <option value="outro">Outro</option>
-                    </select>
-                    <button type="submit">Quero Receber Agora!</button>
-                </form>
-            </div>
+            <a href="#mf-captura" class="mf-lp-cta-principal">Quero Receber as Atualizações Exclusivas do Agro</a>
+            <a href="#mf-valor" class="mf-lp-cta-secundario">Saiba Mais Sobre o Canal</a>
         </div>
     </section>
 
-    <section id="mf-valor" class="mf-lp-section" style="background-color: var(--mf-fundo-secundario);">
-        <div class="mf-container">
-            <h2 class="mf-lp-section-title">O Que Você Encontra no Canal de Propulsão Agro</h2>
+    <section id="mf-valor" class="mf-lp-section" style="background-color: var(--mf-fundo-principal);">
+        <div class="mf-lp-container">
+            <h2 class="mf-lp-section-title">O Conhecimento Que Te Coloca na Frente da Porteira</h2>
             <p class="mf-lp-section-subtitle">O MF Rural coleta, seleciona e entrega o conhecimento mais relevante para otimizar sua produção e seus resultados, transformando dados brutos em <strong>Decisões Estratégicas</strong>.</p>
             
-            <div class="mf-cards-grid">
-                <div class="mf-card">
-                    <h3>Dados de Mercado em Tempo Real</h3>
-                    <p>Acesso a preços, cotações e análises para você comprar e vender com a melhor margem.</p>
+            <div class="mf-lp-cards-grid">
+                <div class="mf-lp-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3 class="mf-lp-card-title">1. Tendências de Mercado e Previsão</h3>
+                    <p>Receba análises de demanda, movimentos de preço futuros, benchmarks de produtividade e como fatores externos impactam a sua próxima safra.</p>
                 </div>
-                <div class="mf-card">
-                    <h3>Soluções Tecnológicas Validadas</h3>
-                    <p>Conheça as startups promissoras que resolvem os desafios reais do campo de forma sustentável.</p>
+                <div class="mf-lp-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3 class="mf-lp-card-title">2. Casos de Sucesso e Validação</h3>
+                    <p>Apresentamos estudos de caso validados, mostrando resultados concretos de produtores que já adotaram soluções do Canal. Saiba o ROI antes de investir.</p>
                 </div>
-                <div class="mf-card">
-                    <h3>Tendências e Previsões</h3>
-                    <p>Relatórios exclusivos sobre o futuro da agricultura e pecuária, antecipando o que está por vir.</p>
+                <div class="mf-lp-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3 class="mf-lp-card-title">3. Otimização e Gestão Eficiente</h3>
+                    <p>Dicas e guias práticos focados em redução de desperdício, melhor uso de insumos, gestão financeira e compliance rural, direto da inteligência das AgTechs.</p>
+                </div>
+                <div class="mf-lp-card">
+                    <i class="fas fa-satellite-dish"></i>
+                    <h3 class="mf-lp-card-title">4. Radar de Soluções e Atualizações</h3>
+                    <p>Fique por dentro de lançamentos de softwares, equipamentos, biotecnologia e serviços que estão entrando no mercado. Conheça a inovação assim que ela se torna disponível.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="mf-dna" class="mf-lp-section">
-        <div class="mf-container">
-            <h2 class="mf-lp-section-title">Nosso DNA: Confiança e Inovação</h2>
+    <section id="mf-dna" class="mf-lp-section" style="background-color: var(--mf-fundo-cards);">
+        <div class="mf-lp-container">
+            <h2 class="mf-lp-section-title" style="color: var(--mf-branco);">Onde o DNA MF Rural Encontra a Inovação das Startups</h2>
             <p class="mf-lp-section-subtitle" style="color: #ccc;">Há mais de <strong>20 anos</strong>, somos o maior elo comercial do agronegócio. Agora, somos também o elo de conhecimento. O MF Rural é a ponte entre a tecnologia das startups e a experiência do produtor, garantindo que a informação seja relevante, confiável e aplicável.</p>
-            
-            <blockquote style="color: var(--mf-laranja); font-size: 1.2em; border-left: 5px solid var(--mf-laranja); padding-left: 20px; margin: 30px auto; max-width: 800px; text-align: left;">
+            <blockquote class="mf-blockquote">
                 Nossa missão: Fomentar a base com inteligência e desenvolvimento rural.
             </blockquote>
         </div>
     </section>
 
-    <footer class="mf-footer">
-        <div class="mf-container">
-            <div class="mf-footer-links">
-                <a href="#">Sobre o MF Rural</a>
-                <a href="#">Ajuda</a>
-                <a href="#">Política de Privacidade</a>
-                <a href="#">Termos de Uso</a>
-            </div>
-            <div class="mf-footer-social">
-                <a href="#">F</a> 
-                <a href="#">I</a> 
-                <a href="#">L</a> 
-            </div>
-            <p class="mf-footer-copyright">&copy; 2025 MF Rural. Todos os direitos reservados.</p>
+    <section id="mf-captura">
+        <div class="mf-lp-container">
+            <h2 class="mf-lp-section-title" style="color: var(--mf-branco); margin-bottom: 5px;">Receba o Primeiro Resumo de Mercado do Canal Agora Mesmo!</h2>
+            <p class="mf-lp-section-subtitle" style="color: #eee;">Não perca as atualizações que podem mudar a rota da sua próxima produção.</p>
+
+            <form action="#" method="POST" class="mf-form-wrap">
+                <h3 style="font-size: 1.5em; font-weight: bold;">Junte-se ao Canal de Propulsão Agro</h3>
+
+                <div class="mf-input-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+
+                <div class="mf-input-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="mf-input-group">
+                    <label for="area">Área de Atuação</label>
+                    <select id="area" name="area" required>
+                        <option value="">Selecione...</option>
+                        <option value="agricultura">Agricultura (Grãos/Culturas)</option>
+                        <option value="pecuaria">Pecuária (Corte/Leite)</option>
+                        <option value="servicos">Serviços e Consultoria Agro</option>
+                        <option value="revenda">Revenda e Distribuição</option>
+                        <option value="outros">Outros</option>
+                    </select>
+                </div>
+
+                <div class="mf-input-group">
+                    <label for="estado">Estado</label>
+                    <input type="text" id="estado" name="estado" required>
+                </div>
+
+                <button type="submit" class="mf-lp-cta-principal mf-form-cta" style="border: none;">Sim, Quero Inovação na Minha Caixa de Entrada</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="mf-lp-footer">
+        <div class="mf-lp-container" style="text-align: center;">
+            <p style="margin-bottom: 15px;">
+                <a href="#">Política de Privacidade</a> |
+                <a href="#">Contato Comercial</a> |
+                <a href="#">Redes Sociais</a>
+            </p>
+            <p>&copy; 2025 MF Rural. Todos os direitos reservados.</p>
         </div>
     </footer>
 
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
