@@ -3,363 +3,477 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MF Rural | Canal de Propulsão Agro - Conhecimento e Inovação</title>
+    <title>Canal de Propulsão Agro | MF Rural</title>
 
-    <link rel="canonical" href="https://www.mfrural.com.br/hubagroinovacao" />
-    <meta name="title" content="MF Rural | Canal de Propulsão Agro - Conhecimento e Inovação" />
-    <meta name="description" content="O MF Rural Canal de Propulsão Agro é o berço das empresas embrionárias do agro, trazendo conhecimento e inovações validadas para o produtor." />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="MF Rural | Canal de Propulsão Agro" />
-    
-    <link href="https://cdn.mfrural.com.br/Content/css/dist/home.min.css?v=638996782156479542" rel="stylesheet">
+    <meta name="description" content="O MF Rural Canal de Propulsão Agro é o berço das empresas embrionárias do agro, trazendo acesso a tecnologias comercializáveis validadas para o produtor." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* Variáveis de Cores */
+        /* Variáveis de Cores (Paleta Tech Startup - Fundo Escuro) */
         :root {
-            --mf-verde-principal: #55ad33;
-            --mf-laranja: #FF6600;
-            --mf-fundo-lp: #101010; /* Fundo Escuro para o Conteúdo Central */
-            --mf-fundo-cards: #1a1a1a;
-            --mf-texto-claro: #F8F8F8;
-            --mf-grafite-claro: #ccc;
+            --color-primary: #FF6600;      /* Laranja de Destaque */
+            --color-secondary: #55ad33;    /* Verde MF Rural */
+            --color-background-dark: #101010;
+            --color-background-card: #1a1a1a;
+            --color-text-light: #F8F8F8;
+            --color-text-muted: #aaaaaa;
+            --font-family: 'Inter', sans-serif;
         }
 
-        /* Aplica a fonte Open Sans ao conteúdo customizado para consistência */
-        .lp-main-content {
-            font-family: 'Open Sans', 'Roboto', sans-serif;
+        /* --- Global Resets & Typography --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-family);
         }
-
-        /* Estilos da Landing Page - Injetando no Main com Fundo Escuro */
-        .lp-main-content {
-            background-color: var(--mf-fundo-lp);
-            color: var(--mf-texto-claro);
-            padding: 0; /* Remove padding externo para o header e footer se conectarem */
+        body {
+            background-color: var(--color-background-dark);
+            color: var(--color-text-light);
+            line-height: 1.6;
         }
-        
-        .lp-main-container {
-            max-width: 1200px;
+        .container {
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* HEADER - Ajustes necessários para a busca e links funcionarem visualmente */
-        .top, .header {
-            z-index: 1000;
-        }
-        
-        /* 1. Primeira Dobra (Hero) */
-        .mf-lp-hero {
-            padding: 60px 0 80px;
-            text-align: center;
+            padding: 0 20px;
         }
 
-        .mf-lp-headline {
-            font-size: 3em;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            color: var(--mf-laranja);
-        }
+        /* --- UTILITY CLASSES --- */
+        .text-center { text-align: center; }
+        .text-primary { color: var(--color-primary); }
+        .text-secondary { color: var(--color-secondary); }
+        .font-bold { font-weight: 700; }
+        .mt-4 { margin-top: 40px; }
+        .mb-4 { margin-bottom: 40px; }
+        .py-6 { padding-top: 60px; padding-bottom: 60px; }
+        .grid-layout { display: grid; gap: 30px; }
 
-        .mf-lp-subheadline {
-            font-size: 1.5em;
-            max-width: 900px;
-            margin: 0 auto 40px;
-            font-weight: 300;
-            color: #ddd;
+        /* --- 1. HEADER (TOPO) --- */
+        .header {
+            background-color: #FFFFFF;
+            padding: 15px 0;
+            border-bottom: 3px solid var(--color-primary);
         }
-
-        /* Botões/CTAs */
-        .mf-lp-cta-principal {
-            display: inline-block;
-            background-color: var(--mf-laranja);
-            color: var(--mf-texto-claro);
-            padding: 15px 30px;
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo img { height: 40px; width: auto; }
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+            font-size: 0.9em;
+            margin-left: 30px;
+        }
+        .nav-menu a {
+            color: #333;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
-            border-radius: 8px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .nav-menu a:hover { color: var(--color-primary); }
+        .cta-button {
+            background-color: var(--color-secondary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
             transition: background-color 0.3s;
         }
 
-        .mf-lp-cta-principal:hover {
-            background-color: #CC5200;
+        /* --- 2. INDICADORES E COTAÇÕES (Integrado ao Header) --- */
+        .indicators-bar {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.85em;
+            color: #555;
+            flex-grow: 1;
+            justify-content: flex-end;
+            padding-right: 20px;
         }
+        .indicator-item i { color: var(--color-primary); margin-right: 5px; }
+        .indicator-value { color: var(--color-secondary); font-weight: 700; margin-left: 3px; }
 
-        .mf-lp-cta-secundario {
-            display: inline-block;
-            color: var(--mf-texto-claro);
-            padding: 15px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1em;
-            border-radius: 8px;
-            transition: color 0.3s, border-color 0.3s;
-            margin-left: 20px;
-            border: 2px solid var(--mf-texto-claro);
+        /* --- 3. BARRA CEPEA (Cotações) --- */
+        .cepea-bar {
+            background-color: #f7f7f7;
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
         }
-
-        .mf-lp-cta-secundario:hover {
-            color: var(--mf-laranja);
-            border-color: var(--mf-laranja);
-        }
-
-        /* Seções de Conteúdo */
-        .mf-lp-section {
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .mf-lp-section-title {
-            font-size: 2.2em;
-            color: var(--mf-laranja);
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .mf-lp-section-subtitle {
-            font-size: 1.1em;
-            color: #ccc;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* Cards de Valor (Tendências) */
-        .mf-lp-cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .mf-lp-card {
-            background-color: var(--mf-fundo-cards);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border-top: 5px solid var(--mf-verde-principal);
-            transition: transform 0.3s;
-        }
-
-        .mf-lp-card i {
-            font-size: 2.5em;
-            color: var(--mf-laranja);
-            margin-bottom: 15px;
-        }
-
-        .mf-lp-card-title {
-            font-size: 1.3em;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: var(--mf-texto-claro);
-        }
-        
-        .mf-lp-card p {
-            color: #ccc;
-            text-align: left;
-        }
-        
-        /* Citação/DNA */
-        .mf-blockquote {
-            color: var(--mf-laranja); 
-            font-size: 1.2em; 
-            border-left: 5px solid var(--mf-laranja); 
-            padding-left: 20px; 
-            margin: 30px auto; 
-            max-width: 800px; 
-            text-align: left;
-        }
-
-        /* Formulário de Captação */
-        #mf-captura {
-            background-color: var(--mf-verde-principal);
-            color: var(--mf-texto-claro);
-            padding: 80px 0;
-        }
-
-        .mf-form-wrap {
-            background-color: var(--mf-branco);
-            padding: 40px;
-            border-radius: 10px;
-            max-width: 600px;
-            margin: 30px auto 0;
-            text-align: left;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .mf-form-wrap h3 {
-            color: var(--mf-verde-principal);
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .mf-input-group label {
-            color: var(--mf-grafite);
-        }
-
-        .mf-input-group input, .mf-input-group select {
-            color: var(--mf-grafite);
-        }
-        
-        /* Banner Placeholder Simulado (Para ter a altura correta) */
-        .banner-destaques-1190x250 {
-            width: 100%;
-            max-width: 1190px;
-            height: 250px; /* Altura do banner rotativo */
-            margin: 30px auto;
-            background-color: #2a2a2a; /* Cor para simular o espaço do banner */
+        .cepea-list {
             display: flex;
             justify-content: center;
-            align-items: center;
-            color: #fff;
-            font-size: 1.5em;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 15px;
+        }
+        .cepea-list a {
+            color: #444;
+            text-decoration: none;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        /* --- 4. SEÇÃO NOTÍCIAS (6 Banners) --- */
+        .news-section {
+            background-color: var(--color-background-dark);
+            padding: 30px 0;
+        }
+        .news-grid {
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        }
+        .news-card {
+            background-color: var(--color-background-card);
+            padding: 15px;
             border-radius: 8px;
-            border: 1px dashed #55ad33;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 150px;
+        }
+        .news-card a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        .news-card a:hover { color: var(--color-primary); }
+        .news-area { color: var(--color-secondary); font-size: 0.8em; margin-bottom: 5px; display: block; }
+
+        /* --- 5. LP HERO & CTA PRINCIPAL --- */
+        .section-hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+        .hero-title {
+            font-size: 3.2em;
+            font-weight: 900;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        .hero-subtitle {
+            font-size: 1.4em;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: var(--color-text-muted);
+        }
+        .cta-primary {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+        .cta-secondary {
+            color: var(--color-text-light);
+            border: 2px solid var(--color-text-light);
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 20px;
+        }
+
+        /* --- 6. LP CARDS (Segmentação) --- */
+        .section-cards {
+            background-color: var(--color-background-card);
+            padding: 60px 0;
+        }
+        .card-component {
+            background-color: var(--color-background-dark);
+            padding: 30px;
+            border-radius: 8px;
+            border-top: 4px solid var(--color-secondary);
+            text-align: center;
+        }
+        .card-component i {
+            font-size: 2.8em;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+        .card-component h3 {
+            font-size: 1.4em;
+            color: var(--color-text-light);
+            margin-bottom: 10px;
+        }
+        .card-component p {
+            color: var(--color-text-muted);
+            text-align: left;
+        }
+
+        /* --- 7. FORMULÁRIO (CTA Final) --- */
+        .section-form {
+            background-color: var(--color-secondary);
+            padding: 80px 0;
+        }
+        .form-wrapper {
+            background-color: var(--color-text-light);
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 500px;
+            margin: 30px auto 0;
+        }
+        .form-wrapper h3 { color: var(--color-secondary); margin-bottom: 20px; text-align: center; }
+        .form-wrapper label { color: var(--color-text-dark); font-weight: 600; display: block; margin-bottom: 5px; }
+        .form-wrapper input, .form-wrapper select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            color: #333;
+            font-size: 1em;
+        }
+        .form-submit-btn {
+            width: 100%;
+            background-color: var(--color-primary) !important;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+        /* --- 8. FOOTER --- */
+        .footer {
+            background-color: #1e1e1e;
+            padding: 30px 0;
+            color: var(--color-text-muted);
+            font-size: 0.9em;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-links a { color: var(--color-text-muted); margin-right: 15px; text-decoration: none; }
+        .footer-links a:hover { color: var(--color-primary); }
+        
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 1024px) {
+            .indicator-item { display: none; }
+            .header-content { justify-content: space-around; }
+            .nav-menu { margin-left: 0; }
+            .header-content .indicators-bar { display: none; }
+        }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.2em; }
+            .hero-subtitle { font-size: 1.1em; }
+            .cta-secondary { margin-left: 0; margin-top: 15px; display: block; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .footer-links { margin-top: 15px; }
         }
     </style>
 </head>
 <body>
-    
-    <div class="maskMenu"></div><div class="maskMenu-mobi"></div><div class="top" style="background: #FFF;">    <header class="header">        <div class="header__content container-fluid">            <div class="container py-3 px-lg-0 px-3 lg">                <div class="d-flex justify-content-between align-items-center">                    <span class="menu__content d-lg-none d-block">                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#495057" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>                    </span>                    <div class="header__logo">                        <a href="/">                            <img src="/Content/img/logo.png" class="logo__img"                                 alt="Logo MF Rural" title="MF Rural - Compre e Venda Produtos Agro em todo Brasil" width="188" height="42" loading="lazy" />                        </a>                    </div>                    <input type="checkbox" id="open__search-check" class="open__search-check">                    <label for="open__search-check" class="open_search d-lg-none d-block mb-0 mr-0 mr-lg-3">                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#495057" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>                    </label>                    <div id="regiaoPesquisa" class="regiaoPesquisa form__content">                        <div id="buscaId" class="form__search form">                            <input type="text" required placeholder="O que você procura?" onkeypress="return digitarBusca(event)" ID="txtbusca" id="form__search-focus btBusca" title="Digite aqui a palavra rural que deseja buscar" class="searchPrincipal form-control form-control-lg" autocomplete="off" />                            <button type="button" onclick="button_onClickN();return false;" role="button" aria-label="Pesquisa" id="btBusca" class="btBusca btn btn-light border-0 text-muted btn-form" value="">                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>                            </button>                        </div>                    </div>                    <div class="header__content d-flex justify-content-around icons-header align-items-center">                            <div class="dropdown">                                <button class="btn d-xl-block dropdown-toggle header__content-link my__account" type="button" id="accountOp" data-toggle="dropdown" aria-expanded="false" style=" color: #ACB5BD;">                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>                                    Minha conta                                </button>                                <div class="dropdown-menu" aria-labelledby="accountOp">                                    <a ID="HyperLink1" class="li-login dropdown-item" rel="nofollow" href="https://cliente.mfrural.com.br/painel/">Seu Controle</a>                                    <a ID="HyperLink2" class="li-login dropdown-item" rel="nofollow" href="/sair2.aspx">Sair</a>                                </div>                            </div>                    </div>
-                    <div class="col publicar">                            <a title="Publique seu Anúncio" class="btn btn-success btn-block text-nowrap" href="/anunciar">Publicar Anúncio</a>                    </div>                </div>            </div>        </div>    </header>    <nav class="header__menu container-fluid nav-header d-none d-lg-block">        <button class="close__menu d-lg-none d-block"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>        <div class="header__menu-container container p-0">
-            <ul class="d-flex justify-content-between menu-header">                <li class="logo__mobile d-md-none d-block">                    <div class="header__logo col-sm-2">                        <a href="/">                            <img src="/Content/img/logo.png" loading="lazy" alt="Logo MF Rural" title="MF Rural - Compre e Venda Produtos Agro em todo Brasil" class="img-fluid" width="188" height="55" />                        </a>                    </div>                </li>
-                <li class="categorias">
-                    <a href="/produtos" class="categorias__link" title="Classificados Rurais e Agropecuários" style="font-weight: 500;">                        <svg class="svg-inline--fa fa-bars fa-w-14 mr-2" width="14" height="14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>                        Todas as Categorias                        <svg class="svg-inline--fa fa-angle-down fa-w-10 ml-2 esconder-mobile" width="14" height="14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg>                    </a>                    <label for="open-submenuHeader" class="open-submenuHeader d-lg-none d-block">                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>                    </label>                    <input class="open-submenuHeader d-none" id="open-submenuHeader" type="checkbox">                    <ul class="submenu-header">                        <li><a href="https://www.mfrural.com.br/produtos/1-57/aeronaves" title="Aeronaves">Aeronaves</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-51/alimentos" title="Alimentos em Geral">Alimentos em Geral</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-14/nutricao-animal" title="Alimentos para Nutrição Animal">Alimentos para Nutrição Animal</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-38/animais" title="Animais">Animais</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-53/caminhoes" title="Caminhões">Caminhões</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-46/carrocerias-furgoes" title="Carrocerias/Furgões">Carrocerias/Furgões</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-50/colheitadeiras-colhedoras" title="Colheitadeiras/Colhedoras">Colheitadeiras / Colhedoras</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-21/defensivos" title="Defensivos Agrícolas">Defensivos Agrícolas</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-47/diversos" title="Diversos">Diversos</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-37/embalagens" title="Embalagens">Embalagens</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-49/exportacao-importacao" title="Exportação/Importação">Exportação / Importação</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-7/fazendas-imoveis-rurais" title="Fazendas / Imóveis Rurais">Fazendas / Imóveis Rurais</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-11/fertilizantes" title="Fertilizantes Agrícolas">Fertilizantes Agrícolas</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-16/implementos" title="Implementos">Implementos</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-6/instalacoes" title="Instalações Rurais">Instalações Rurais</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-48/maquinas-pesadas" title="Máquinas Pesadas">Máquinas Pesadas</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-26/maquinas-equipamentos" title="Máquinas/Equipamentos">Máquinas/Equipamentos</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-39/medicamentos" title="Medicamentos">Medicamentos</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-20/mudas-ramas" title="Mudas/Ramas">Mudas/Ramas</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-56/onibus" title="Ônibus">Ônibus</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-17/pecas-aditivos-acessorios" title="Peças/Aditivos/Acessórios">Peças / Aditivos / Acessórios</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-54/pneus" title="Pneus">Pneus</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/2-274/servicos-compro-procuro" title="Procuro/Compro/Troco">Procuro / Compro / Troco</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-19/sementes" title="Sementes">Sementes</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-9/servicos" title="Serviços">Serviços</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-44/tratores-agricolas" title="Tratores Agrícolas">Tratores Agrícolas</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-30/utensilios" title="Utensílios Agropecuários">Utensílios Agropecuários</a></li>                        <li><a href="https://www.mfrural.com.br/produtos/1-43/veiculos" title="Veículos">Veículos</a></li>                    </ul>                </li>                <li><a href="https://www.mfrural.com.br/quem-somos">Quem Somos</a></li>                <li><a title="MF Magazine - A Revista Digital do Agronegócio" href="https://blog.mfrural.com.br/">MF Magazine</a></li>                <li><a title="Depoimentos de Anunciantes" href="https://www.mfrural.com.br/depoimentos">Depoimentos</a></li>                <li><a title="Lojas oficiais de empresas agropecuárias" href="https://www.mfrural.com.br/lojas-oficiais">Lojas Oficiais</a></li>                <li><a title="Midia Kit - Anuncie no MF Rural" href="https://www.mfrural.com.br/emailmkt/midia-kit-mfrural.pdf" target="_blank" id="botaoMidiaKit">Midia Kit</a></li>                <li class="publicar_anuncio"><a title="Anuncie no MF Rural" href="https://www.mfrural.com.br/anunciar">Publicar Anúncio</a></li>            </ul>        </div>    </nav>    </div><section class="banner-home-topo">
-        <div class="container d-flex flex-column justify-content-center" id="banner1190x250">
-            <div class="banners-destaques banner-destaques-1190x250">
-                <p><strong>[Placeholder Banner Rotativo 1190x250]</strong><br>Aqui será injetado o banner rotativo (ou estático).</p>
+
+    <header class="header">
+        <div class="container header-content">
+            <div style="display: flex; align-items: center;">
+                <div class="logo">
+                    <img src="/Content/img/logo.png" alt="Logo MF Rural">
+                </div>
+                <nav class="nav-menu">
+                    <a href="#news">Notícias</a>
+                    <a href="#segmentacao">Soluções</a>
+                    <a href="#formulario">Contato</a>
+                    <a href="#" class="text-secondary">Quem Somos</a>
+                </nav>
+            </div>
+
+            <div class="indicators-bar">
+                <div class="indicator-item">
+                    <i class="fas fa-sun"></i>
+                    <span>Marília:</span>
+                    <span class="indicator-value">28°C</span>
+                </div>
+                <div class="indicator-item">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>Dólar:</span>
+                    <span class="indicator-value">R$ 5,45</span>
+                </div>
+                <div class="indicator-item">
+                    <i class="fas fa-spa"></i>
+                    <span>Soja:</span>
+                    <span class="indicator-value">R$ 155,00/sc</span>
+                </div>
+                <div class="indicator-item">
+                    <i class="fas fa-tractor"></i>
+                    <span>Boi Gordo:</span>
+                    <span class="indicator-value">R$ 230,00/@</span>
+                </div>
+                <a href="/anunciar" class="cta-button">Publicar Anúncio</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="cepea-bar">
+        <div class="container">
+            <ul class="cepea-list">
+                <li><a href="https://www.cepea.org.br/br/indicador/acucar.aspx" target="_blank">AÇÚCAR</a></li>
+                <li><a href="https://www.cepea.org.br/br/indicador/algodao.aspx" target="_blank">ALGODÃO</a></li>
+                <li><a href="https://www.cepea.org.br/br/indicador/arroz.aspx" target="_blank">ARROZ</a></li>
+                <li><a href="https://www.cepea.org.br/br/indicador/boi-gordo.aspx" target="_blank">BOI GORDO</a></li>
+                <li><a href="https://www.cepea.org.br/br/indicador/cafe.aspx" target="_blank">CAFÉ</a></li>
+                <li><a href="https://www.cepea.org.br/br/indicador/milho.aspx" target="_blank">MILHO</a></li>
+                <li><a href="https://www.cepea.org.br/br/indicador/soja.aspx" target="_blank">SOJA</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="news-section" id="news">
+        <div class="container">
+            <h2 class="text-center text-primary" style="font-size: 1.8em; margin-bottom: 25px;">Últimas Inovações & Notícias do Setor</h2>
+            <div class="grid-layout news-grid">
+                
+                <div class="news-card">
+                    <a href="#">
+                        <span class="news-area">PECUÁRIA</span>
+                        Monitoramento via satélite reduz perda de pastagem em 15% na seca.
+                    </a>
+                </div>
+
+                <div class="news-card">
+                    <a href="#">
+                        <span class="news-area">AGRICULTURA</span>
+                        Biológicos: Nova biotecnologia aumenta produtividade de soja em 3 sacas/ha.
+                    </a>
+                </div>
+
+                <div class="news-card">
+                    <a href="#">
+                        <span class="news-area">MÁQUINAS & LOGÍSTICA</span>
+                        IA prevê falha em tratores com 90% de antecedência, evitando paradas.
+                    </a>
+                </div>
+                
+                <div class="news-card">
+                    <a href="#">
+                        <span class="news-area">SOFTWARE & GESTÃO</span>
+                        App de gestão financeira se torna padrão para médias propriedades rurais.
+                    </a>
+                </div>
+                
+                <div class="news-card">
+                    <a href="#">
+                        <span class="news-area">MERCADO & FINANÇAS</span>
+                        Análise mostra tendência de alta nos preços do boi gordo no 1º trimestre.
+                    </a>
+                </div>
+                
+                <div class="news-card">
+                    <a href="#">
+                        <span class="news-area">INSUMOS & CLIMA</span>
+                        Nova plataforma indica zonas de risco climático com precisão de 95%.
+                    </a>
+                </div>
             </div>
         </div>
     </section>
-    <main class="lp-main-content">
-        <div class="lp-main-container">
-            
-            <section class="mf-lp-hero">
-                <h1 class="mf-lp-headline">Nossa Essência Pioneira Impulsiona a Inovação. O Conhecimento Que Transforma o Campo Está Aqui.</h1>
-                <p class="mf-lp-subheadline">
-                    Somos pioneiros e mantemos nosso DNA: fornecer serviços e produtos de qualidade. Este é o nosso <strong>Canal de Propulsão Agro</strong>, o berço onde regamos a semente das empresas embrionárias do agro para que você colha os frutos da evolução do setor.
-                </p>
-                <a href="#mf-captura" class="mf-lp-cta-principal">Quero Receber as Atualizações Exclusivas do Agro</a>
-                <a href="#mf-valor" class="mf-lp-cta-secundario">Saiba Mais Sobre o Canal</a>
-            </section>
 
-            <section id="mf-valor" class="mf-lp-section" style="background-color: var(--mf-fundo-cards); border-radius: 8px; margin-bottom: 40px;">
-                <h2 class="mf-lp-section-title">O Conhecimento Que Te Coloca na Frente da Porteira</h2>
-                <p class="mf-lp-section-subtitle">O MF Rural coleta, seleciona e entrega o conhecimento mais relevante para otimizar sua produção e seus resultados, transformando dados brutos em <strong>Decisões Estratégicas</strong>.</p>
-                
-                <div class="mf-lp-cards-grid">
-                    <div class="mf-lp-card">
-                        <i class="fas fa-chart-line"></i>
-                        <h3 class="mf-lp-card-title">1. Tendências de Mercado e Previsão</h3>
-                        <p>Receba análises de demanda, movimentos de preço futuros, benchmarks de produtividade e como fatores externos impactam a sua próxima safra.</p>
-                    </div>
-                    <div class="mf-lp-card">
-                        <i class="fas fa-seedling"></i>
-                        <h3 class="mf-lp-card-title">2. Casos de Sucesso e Validação</h3>
-                        <p>Apresentamos estudos de caso validados, mostrando resultados concretos de produtores que já adotaram soluções do Canal. Saiba o ROI antes de investir.</p>
-                    </div>
-                    <div class="mf-lp-card">
-                        <i class="fas fa-cogs"></i>
-                        <h3 class="mf-lp-card-title">3. Otimização e Gestão Eficiente</h3>
-                        <p>Dicas e guias práticos focados em redução de desperdício, melhor uso de insumos, gestão financeira e compliance rural, direto da inteligência das AgTechs.</p>
-                    </div>
-                    <div class="mf-lp-card">
-                        <i class="fas fa-satellite-dish"></i>
-                        <h3 class="mf-lp-card-title">4. Radar de Soluções e Atualizações</h3>
-                        <p>Fique por dentro de lançamentos de softwares, equipamentos, biotecnologia e serviços que estão entrando no mercado. Conheça a inovação assim que ela se torna disponível.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="mf-dna" class="mf-lp-section" style="background-color: var(--mf-fundo-lp);">
-                <h2 class="mf-lp-section-title" style="color: var(--mf-texto-claro);">Onde o DNA MF Rural Encontra a Inovação das Startups</h2>
-                <p class="mf-lp-section-subtitle" style="color: #ccc;">Há mais de <strong>20 anos</strong>, somos o maior elo comercial do agronegócio. Agora, somos também o elo de conhecimento. O MF Rural é a ponte entre a tecnologia das startups e a experiência do produtor, garantindo que a informação seja relevante, confiável e aplicável.</p>
-                <blockquote class="mf-blockquote">
-                    Nossa missão: Fomentar a base com inteligência e desenvolvimento rural.
-                </blockquote>
-            </section>
-
-            <section id="mf-captura" style="border-radius: 0;">
-                <div class="lp-main-container">
-                    <h2 class="mf-lp-section-title" style="color: var(--mf-texto-claro); margin-bottom: 5px;">Receba o Primeiro Resumo de Mercado do Canal Agora Mesmo!</h2>
-                    <p class="mf-lp-section-subtitle" style="color: #eee;">Não perca as atualizações que podem mudar a rota da sua próxima produção.</p>
-
-                    <form action="#" method="POST" class="mf-form-wrap">
-                        <h3 style="font-size: 1.5em; font-weight: bold;">Junte-se ao Canal de Propulsão Agro</h3>
-
-                        <div class="mf-input-group">
-                            <label for="nome">Nome Completo</label>
-                            <input type="text" id="nome" name="nome" required>
-                        </div>
-
-                        <div class="mf-input-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-
-                        <div class="mf-input-group">
-                            <label for="area">Área de Atuação</label>
-                            <select id="area" name="area" required>
-                                <option value="">Selecione...</option>
-                                <option value="agricultura">Agricultura (Grãos/Culturas)</option>
-                                <option value="pecuaria">Pecuária (Corte/Leite)</option>
-                                <option value="servicos">Serviços e Consultoria Agro</option>
-                                <option value="revenda">Revenda e Distribuição</option>
-                                <option value="outros">Outros</option>
-                            </select>
-                        </div>
-
-                        <div class="mf-input-group">
-                            <label for="estado">Estado</label>
-                            <input type="text" id="estado" name="estado" required>
-                        </div>
-
-                        <button type="submit" class="mf-lp-cta-principal mf-form-cta" style="border: none;">Sim, Quero Inovação na Minha Caixa de Entrada</button>
-                    </form>
-                </div>
-            </section>
+    <main class="section-hero">
+        <div class="container">
+            <h1 class="hero-title">Nossa Essência Pioneira Impulsiona a Inovação. O Conhecimento Que Transforma o Campo Está Aqui.</h1>
+            <p class="hero-subtitle">
+                Somos pioneiros e mantemos nosso DNA: fornecer serviços e produtos de qualidade. Este é o nosso <strong>Canal de Propulsão Agro</strong>, o berço onde regamos a semente das empresas embrionárias do agro para que você colha os frutos da evolução do setor.
+            </p>
+            <a href="#formulario" class="cta-primary">Quero Receber as Atualizações Exclusivas do Agro</a>
+            <a href="#segmentacao" class="cta-secondary">Saiba Mais Sobre o Canal</a>
         </div>
     </main>
+
+    <section class="section-cards" id="segmentacao">
+        <div class="container">
+            <h2 class="text-center text-primary py-6">As Tecnologias Comercializáveis Por Área de Concentração</h2>
+            <p class="text-center" style="color: var(--color-text-muted); max-width: 800px; margin: 0 auto 50px;">Tenha acesso direto às principais <strong>soluções de mercado</strong> que estão sendo comercializadas, segmentadas pela área de atuação e com a credibilidade do Canal de Propulsão Agro.</p>
+
+            <div class="grid-layout" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                
+                <div class="card-component">
+                    <i class="fas fa-cow"></i>
+                    <h3>1. Pecuária e Saúde Animal</h3>
+                    <p>Plataformas de rastreabilidade, softwares de manejo nutricional, biotecnologia aplicada à genética e soluções para otimização da produção de leite e corte.</p>
+                </div>
+                
+                <div class="card-component">
+                    <i class="fas fa-seedling"></i>
+                    <h3>2. Agricultura e Tecnologias de Plantio</h3>
+                    <p>Tecnologias de fertilização variável, serviços de análise de solo com IA, inovações em insumos biológicos e sistemas de irrigação inteligentes.</p>
+                </div>
+                
+                <div class="card-component">
+                    <i class="fas fa-tractor"></i>
+                    <h3>3. Máquinas, Implementos e Colheita</h3>
+                    <p>Serviços de telemetria para frotas, implementos adaptados, sistemas de colheita otimizada e hardware que transforma máquinas antigas em IoT.</p>
+                </div>
+                
+                <div class="card-component">
+                    <i class="fas fa-industry"></i>
+                    <h3>4. Indústria e Gestão Agro (Software)</h3>
+                    <p>ERPs e sistemas de gestão de fazendas, plataformas de compra e venda B2B, soluções de certificação de sustentabilidade e logística de grãos.</p>
+                </div>
+
+            </div>
+            
+            <h2 class="text-center text-secondary py-6" style="margin-top: 50px;">Onde o DNA MF Rural Encontra a Inovação das Startups</h2>
+            <p class="text-center" style="color: var(--color-text-muted); margin-bottom: 30px;">Há mais de <strong>20 anos</strong>, somos o maior elo comercial do agronegócio. Agora, somos também o elo de conhecimento. O MF Rural é a ponte entre a tecnologia das startups e a experiência do produtor, garantindo que a informação seja relevante, confiável e aplicável.</p>
+            
+        </div>
+    </section>
+
+    <section class="section-form" id="formulario">
+        <div class="container">
+            <h2 class="hero-title" style="color: var(--color-text-light); font-size: 2.5em;">Receba o Primeiro Resumo de Mercado do Canal Agora Mesmo!</h2>
+            <p style="color: #eee; font-size: 1.1em; margin-bottom: 20px;" class="text-center">Não perca as atualizações que podem mudar a rota da sua próxima produção.</p>
+
+            <form action="#" method="POST" class="form-wrapper">
+                <h3>Junte-se ao Canal de Propulsão Agro</h3>
+                
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="area">Área de Atuação</label>
+                <select id="area" name="area" required>
+                    <option value="">Selecione...</option>
+                    <option value="agricultura">Agricultura (Grãos/Culturas)</option>
+                    <option value="pecuaria">Pecuária (Corte/Leite)</option>
+                    <option value="servicos">Serviços e Consultoria Agro</option>
+                    <option value="revenda">Revenda e Distribuição</option>
+                    <option value="outros">Outros</option>
+                </select>
+
+                <label for="estado">Estado</label>
+                <input type="text" id="estado" name="estado" required>
+
+                <button type="submit" class="form-submit-btn">Sim, Quero Inovação na Minha Caixa de Entrada</button>
+            </form>
+        </div>
+    </section>
+
     <footer class="footer">
-        <div class="footer__content container-fluid py-md-5 py-3 px-0">        <div class="container rodape-info footerOp px-0" style="background: inherit">            <div class="footer__content-list col-lg-2 col-12">                <div class="row flex-column m-0">                    <input id="menu-1" class="menu-1" name="acordion" type="checkbox">                    <label for="menu-1">                        <span class="rodapeTitulo menu__title font-weight-bold">                            Utilidade MF Rural                            <svg class="svg-inline--fa fa-chevron-down"                                 width="14" height="14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">                                <path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>                            </svg>                        </span>                    </label>                    <ul class="rodapeItens menu__list1 text-dark">                        <li><a href="https://www.mfrural.com.br/apresentacao" title="Produto agropecuario Site mercado agropecuário Loja de produto agropecuario venda produto">Apresentação</a></li>                        <li><a href="https://www.mfrural.com.br/produtos" title="Produtos rurais Compra venda de Trator Fazendas Classificados rurais negócios rurais">Produtos Rurais</a></li>                        <li><a href="/produtos/1-9/servicos" title="Serviços rurais Fretes Consultoria Seguro Rural Serviços agropecuários MF Rural">Serviços Rurais</a></li>                        <li><a href="https://blog.mfrural.com.br/categoria/noticias-agricolas/" title="Notícias Agrícolas do MF Rural">Notícias Agrícolas</a></li>                        <li><a href="https://www.mfrural.com.br/lojas-oficiais" title="Lojas Oficiais do MF Rural">Lojas Oficiais</a></li>                        <li><a href="https://www.mfrural.com.br/avaliacao-preco-de-trator" title="Avaliação de Preço de Tratores">Avaliação de Tratores</a></li>                        <li><a href="https://blog.mfrural.com.br/" title="MF Magazine - A Revista Digital do Agronegócio">MF Magazine</a></li>                                            </ul>                </div>            </div>            <div class="footer__content-list col-lg-3 col-12">                <div class="row flex-column m-0">                    <input id="menu-2" class="menu-2" name="acordion" type="checkbox">                    <label for="menu-2">                        <span class="rodapeTitulo menu__title font-weight-bold">                            Informações                            <svg class="svg-inline--fa fa-chevron-down"                                 width="14" height="14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">                                <path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>                            </svg>                        </span>                    </label>                    <ul class="rodapeItens menu__list2 text-dark">                                                <li><a href="/plano-loja-oficial" title="Preço Pacote de Anúncios">Preço Pacote de Anúncios</a></li>                        <li>                            <a target="_blank" href="https://www.mfrural.com.br/politica-de-privacidade">Politica de Privacidade</a>                        </li>                        <li>                            <a target="_blank" href="https://www.mfrural.com.br/politica-de-cookie">Politica de Cookies</a>                        </li>                        <li>                            <a target="_blank" href="https://www.mfrural.com.br/politica">Politica de Preços / Tarifas</a>                        </li>                                                <li>                            <a href="/contato" title="Entre em contato para fazer melhores negócios">Contato</a>                        </li>                        <li>                            <a href="/termos-de-uso" title="Termos de Uso">Termos de Uso</a>                        </li>                    </ul>                </div>            </div>            <div class="footer__content-list col-lg-2 col-12">                <div class="row flex-column m-0">                    <input id="menu-3" class="menu-3" name="acordion" type="checkbox">                    <label for="menu-3">                        <span class="rodapeTitulo menu__title font-weight-bold">                            Interatividade                            <svg class="svg-inline--fa fa-chevron-down"                                 width="14" height="14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">                                <path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>                            </svg>                        </span>                    </label>                    <ul class="rodapeItens menu__list3 text-dark">                        <li><a title="Indique este site Rural a um amigo" href="https://www.mfrural.com.br/indique">Indique a um amigo</a></li>                        <li><a title="Tratores mais buscados" href="https://www.mfrural.com.br/avaliacao-preco-de-trator/lista">Tratores mais Buscados</a></li>                    </ul>                </div>            </div>            <div class="footer__content-list col-lg-3 col-12">                <div class="row flex-column m-0">                    <input id="menu-5" class="menu-5" name="acordion" type="checkbox">                    <label for="menu-5">                        <span class="rodapeTitulo menu__title font-weight-bold">                            Ajuda                            <svg class="svg-inline--fa fa-chevron-down"                                 width="14" height="14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">                                <path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>                            </svg>                        </span>                    </label>                    <ul class="rodapeItens menu__list5 text-dark">                        <li><a href="https://www.mfrural.com.br/ajuda#como-faco-para-me-cadastrar" style="cursor:pointer">Como faço para me cadastrar?</a> </li>                        <li><a href="https://www.mfrural.com.br/ajuda#como-cadastrar-meu-anuncio" style="cursor:pointer">Como cadastrar meus anúncios?</a> </li>                        <li><a href="https://www.mfrural.com.br/ajuda#como-alterar-meu-anuncio" style="cursor:pointer">Como alterar meu anúncio?</a> </li>                        <li><a href="https://www.mfrural.com.br/ajuda#como-alterar-meus-dados-e-senha" style="cursor:pointer">Como alterar meus dados e senha?</a> </li>                        <li><a href="https://www.mfrural.com.br/ajuda#como-excluir-meu-anuncio" style="cursor:pointer">Como excluir meu anúncio?</a> </li>                        <li><a href="https://www.mfrural.com.br/ajuda#como-alterar-a-foto-do-meu-anuncio" style="cursor:pointer">Como alterar a foto do meu anúncio?</a> </li>                        <li><a href="https://www.mfrural.com.br/ajuda#como-alterar-o-video-do-meu-anuncio" style="cursor:pointer">Como alterar o video do meu anúncio?</a></li>                    </ul>                </div>            </div>            <div class="footer__content-list col-lg-2 col-12">                <div class="row flex-column m-0">                    <input id="menu-6" class="menu-6" name="acordion" type="checkbox">                    <label for="menu-6">                        <span class="rodapeTitulo menu__title font-weight-bold">                            Publicidade / Banners                            <svg class="svg-inline--fa fa-chevron-down"                                 width="14" height="14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">                                <path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>                            </svg>                        </span>                    </label>                    <ul class="rodapeItens menu__list6 text-dark">                        <li><a href="https://www.mfrural.com.br/anuncie" title="Anunciar no MF Rural Banner Site Divulgar Banner Preço Anunciar em Banners Custo">Anuncie</a> </li>                        <li><a href="https://www.mfrural.com.br/anuncie" title="Anunciar no MF Rural Banner Site Divulgar Banner Preço Anunciar em Banners Custo">Por que anunciar?</a> </li>                        <li><a href="https://www.mfrural.com.br/contato">Contate-nos para anunciar</a></li>                    </ul>                </div>            </div>        </div>    </div>
-    <div class="footer__content-address container_fluid pt-4">        <div class="container d-flex contato align-items-center">            <div class="row">                <div class="col-md-4">                    <div class="icons-socials d-flex justify-content-center align-items-center flex-column">                        <p class="m-0 d-none d-sm-flex text-center"><strong>Formas de pagamento</strong></p>                        <ul class="d-flex flex-wrap w-100 align-items-center justify-content-around cartoes-aceitos mt-2">
-                            <li><img width="59" height="13" loading="lazy" title="MFPago" alt="MFPago" src="/Content/img/mfpago.png" /></li>
-                            <li><img width="49" height="13" loading="lazy" title="Pix" alt="Pix" src="/Content/img/pix.svg" /></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="icons-socials d-flex justify-content-center align-items-center flex-column">
-                        <p class="m-0 d-none d-sm-flex"><strong>Nossas redes</strong></p>
-                        <ul class="d-flex">
-                             <li><a href="https://www.facebook.com/mfrural.oficial"><i class="fab fa-facebook-f"></i></a></li>
-                             <li><a href="https://www.instagram.com/mf_rural/"><i class="fab fa-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3 d-flex justify-content-center justify-content-lg-end">
-                    <figure>
-                        <img src="/Content/img/logo.png" alt="Logo" class="img-fluid" loading="lazy" title="MF Rural" width="188" height="42">
-                    </figure>
-                </div>
-                <div class="col-md-12 d-flex justify-content-center justify-content-lg-start pt-3">
-                    <address style="font-size: 11px;">
-                        MF Rural - Mercado Físico Rural -                        Rua Sete de Setembro,                        1440 - Bairro Alto Cafezal,                        CEP: 17502-020, Marília/SP - Brasil<br />
-                        CNPJ: 07.095.159/0001-86 <br />
-                        E-mail: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="741912060106151834191206010615185a171b195a1606">[email&#160;protected]</a>
-                    </address>
-                </div>
+        <div class="container footer-content">
+            <p>&copy; 2025 MF Rural. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Contato Comercial</a>
+                <a href="#">Termos de Uso</a>
             </div>
         </div>
     </footer>
-    <script defer src="https://cdn.mfrural.com.br/Content/js/dist/global.min.js?v=638996781938406374"></script>
-    <script defer src="https://cdn.mfrural.com.br/Content/js/dist/home.min.js?v=638996781916334714"></script>
     
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
